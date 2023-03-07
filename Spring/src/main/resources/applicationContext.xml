@@ -5,25 +5,25 @@
 
 
     <!--setter注入 推荐-->
-    <bean id="bookDao" class="com.linde.dao.impl.BookDaoImpl">
+    <bean id="bookDao" class="com.linde.person1.dao.impl.BookDaoImpl">
         <property name="databaseName" value="mysql"/>
         <property name="connectionNum" value="100"/>
     </bean>
 
-    <bean id="userDao" class="com.linde.dao.impl.UserDaoImpl"/>
-    <bean id="bookService" class="com.linde.service.impl.BookServiceImpl">
+    <bean id="userDao" class="com.linde.person1.dao.impl.UserDaoImpl"/>
+    <bean id="bookService" class="com.linde.person1.service.impl.BookServiceImpl">
         <property name="bookDao" ref="bookDao"/>
         <property name="userDao" ref="userDao"/>
     </bean>
 
 
     <!--静态工厂-->
-    <bean id="orderDao" class="com.linde.factory.OrderDaoFactory" factory-method="getOrderDao"/>
+    <bean id="orderDao" class="com.linde.person1.factory.OrderDaoFactory" factory-method="getOrderDao"/>
     <!--实例化工厂-->
-    <bean class="com.linde.factory.UserDaoFactory" id="userDaoFactory"/>
+    <bean class="com.linde.person1.factory.UserDaoFactory" id="userDaoFactory"/>
     <bean id="userDao1" factory-bean="userDaoFactory" factory-method="getUserDao"/>
     <!--使用factory-bean实例化-->
-    <bean id="userDao2" class="com.linde.factory.UserDaoFactoryBean"/>
+    <bean id="userDao2" class="com.linde.person1.factory.UserDaoFactoryBean"/>
 
     <!--  构造注入  标准书写
     <bean id="bookDao" class="com.linde.dao.impl.BookDaoImplDL">
