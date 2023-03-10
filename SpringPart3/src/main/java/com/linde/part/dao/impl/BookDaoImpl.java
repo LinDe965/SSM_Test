@@ -1,15 +1,31 @@
 package com.linde.part.dao.impl;
 
 import com.linde.part.dao.BookDao;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
-//@Component("bookDao")
-@Repository("bookDao")
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+@Repository
+@Scope
 public class BookDaoImpl implements BookDao {
 
     @Override
     public void save() {
-        System.out.println("book dao save ....");
+        System.out.println("book dao save...");
     }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("init...");
+    }
+
+
+    @PreDestroy
+    public void destory() {
+        System.out.println("destory...");
+    }
+
+
 }

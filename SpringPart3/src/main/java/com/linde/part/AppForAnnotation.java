@@ -8,10 +8,14 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class AppForAnnotation {
     public static void main(String[] args) {
-        ApplicationContext context=new AnnotationConfigApplicationContext(SpringConfig.class);
-        BookDao bookDao = (BookDao) context.getBean("bookDao");
+        AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(SpringConfig.class);
+        BookDao bookDao = context.getBean(BookDao.class);
+        BookDao bookDao1 = context.getBean(BookDao.class);
         System.out.println(bookDao);
+        System.out.println(bookDao1);
+
         BookService bookService = context.getBean(BookService.class);
         System.out.println(bookService);
+        context.close();
     }
 }
