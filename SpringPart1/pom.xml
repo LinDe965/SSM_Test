@@ -7,6 +7,7 @@
     <groupId>com.linde</groupId>
     <artifactId>SpringPart1</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <dependencies>
         <dependency>
